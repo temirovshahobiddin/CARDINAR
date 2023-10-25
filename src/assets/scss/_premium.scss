@@ -1,0 +1,316 @@
+.main_carousel_container {
+    margin-top: 250px;
+    margin-bottom: 100px;
+
+    overflow: hidden;
+
+
+}
+
+.switch_arrows {
+    display: flex;
+    justify-content: space-between;
+
+    width: 100%;
+
+    margin: 0 auto;
+    margin-bottom: 30px;
+
+    @include _470-block {
+        align-items: center;
+    }
+
+
+    @include _1080-block {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .switch-arrows__txt {
+        color: #1E1E1E;
+        font-size: 24px;
+        line-height: 24px;
+
+        @include _470-block {
+            font-size: 16px;
+            line-height: 20px;
+            max-width: 150px;
+            width: 100%;
+        }
+    }
+
+    .carousel_btn_container {
+        display: flex;
+        column-gap: 12px;
+
+        .switch_carousel_btn_style {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: #E5E5E5;
+
+            transition: all 0.2s linear 0s;
+
+            user-select: none;
+
+            &:hover {
+                background: #c3c3c3;
+            }
+
+            img {
+                width: 24px;
+                height: 24px;
+            }
+        }
+
+        .btn_next {
+            margin-left: 24px;
+
+        }
+
+
+    }
+}
+
+.card-wrapper {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    background: linear-gradient(39deg, #000 5.13%, rgba(30, 30, 30, 0.00) 62.04%);
+}
+
+
+
+.body_carousel {
+    display: flex;
+    width: auto;
+
+    .card_container {
+
+
+        /*  background: #000;
+ */
+        .card {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            align-content: center;
+            max-width: 748px;
+            padding: 70px 150px;
+
+
+
+
+            .card_body {
+                position: absolute;
+                display: flex;
+                flex-direction: column;
+
+                left: 31px;
+                bottom: 54px;
+
+                .card_btn {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    margin-bottom: 12px;
+
+                    color: #1E1E1E;
+                    text-align: center;
+                    font-size: 21px;
+                    font-family: Arial;
+                    font-weight: 700;
+
+                    width: 128px;
+                    height: 40px;
+
+                    border-radius: 20px;
+
+                    background: #FFF;
+
+                    cursor: pointer;
+                }
+
+                p {
+                    color: #FFF;
+                    font-size: 22px;
+                    font-family: $regular;
+                    font-weight: 500;
+                    line-height: 22px;
+                    letter-spacing: 0.7px;
+
+                    margin: 12px;
+                }
+
+                .card_link {
+                    p {
+                        display: inline;
+
+                        color: #FFF;
+                        font-size: 16px;
+                        font-family: $regular;
+                        font-weight: 500;
+                        line-height: 24px;
+
+                        border-bottom: solid 2px #ffffff7e;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.card {
+    max-width: 720px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(38deg, #1E1E1E 0%, #2D2C2C 59.91%);
+    padding: 70px 0;
+
+    .card-wrapper {
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        position: absolute;
+        background: linear-gradient(39deg, #000 5.13%, rgba(30, 30, 30, 0.00) 62.04%);
+
+    }
+
+    /* 
+    .parallax__layer {
+        height: 500px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: -200px;
+        overflow: hidden;
+        position: relative;
+
+        img {
+            position: absolute;
+        }
+    } */
+
+    .foto_seat {
+        max-width: 535.658px;
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    .card_symbol {
+        position: absolute;
+        right: 23px;
+        top: 24px;
+    }
+
+    .card_body {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        justify-content: flex-end;
+        top: 0;
+        left: 0;
+        padding: 0 0 53px 30px;
+
+        .card_btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            margin-bottom: 12px;
+
+            color: #1E1E1E;
+            text-align: center;
+            font-size: 21px;
+            font-family: Arial;
+            font-weight: 700;
+
+            width: 128px;
+            height: 40px;
+
+            border-radius: 20px;
+
+            background: #FFF;
+
+            cursor: pointer;
+        }
+
+        p {
+            color: #FFF;
+            font-size: 22px;
+            font-family: $regular;
+            font-weight: 500;
+            line-height: 22px;
+            letter-spacing: 0.7px;
+
+            margin: 12px;
+        }
+
+        .card_link {
+            p {
+                display: inline;
+
+                color: #FFF;
+                font-size: 16px;
+                font-family: $regular;
+                font-weight: 500;
+                line-height: 24px;
+
+                border-bottom: solid 2px #ffffff7e;
+            }
+        }
+    }
+
+}
+
+.parallax {
+    /*     margin: 50px auto; */
+    
+    width: 100%;
+    height: 600px;
+    @media (max-width: 400px) {
+        height: 400px;
+    }
+    @media (max-width: 370px) {
+        height: 370px;
+    }
+
+}
+
+.parallax__layer {
+    position: relative;
+    width: 66%;
+    height: 100%;
+    overflow: hidden;
+    @media (max-width: 400px) {
+     overflow: visible;;
+    }
+
+    margin: 0 auto;
+
+    img {
+        display: block;
+        position: absolute;
+
+        top: 4px;
+        left: 0;
+        width: 100%;
+        width: 100%;
+
+        opacity: 1;
+        transition: opacity 0.1s linear 0s;
+    }
+}

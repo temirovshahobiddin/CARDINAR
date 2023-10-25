@@ -1,0 +1,225 @@
+@mixin flex($js: center, $ai: center) {
+    display: flex;
+    justify-content: $js;
+    align-items: $ai;
+}
+
+@mixin bg($url: '', $repeat: no-repeat, $size: cover, $x: center, $y: center) {
+    background: url($url);
+    background-repeat: $repeat;
+    background-size: $size;
+    background-position: $x $y;
+}
+
+$maxWidth: 1920;
+
+@mixin adaptiv-font($pcSize, $mobSize) {
+    $addSize: $pcSize - $mobSize;
+    $maxWidth: $maxWidth - 320;
+    font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+}
+
+// @include adaptiv-font();
+
+
+@mixin adaptiv-mw($pcSize, $mobSize) {
+    $addSize: $pcSize - $mobSize;
+    $maxWidth: $maxWidth - 320;
+    max-width: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+}
+
+// @include adaptiv-mw();
+
+
+@mixin adaptiv-h($pcSize, $mobSize) {
+    $addSize: $pcSize - $mobSize;
+    $maxWidth: $maxWidth - 320;
+    height: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+}
+
+// @include adaptiv-h();
+
+
+
+@mixin _1920($name, $value) {
+    @media(max-width: 1920.98px) {
+        #{$name}: $value;
+    }
+}
+
+@mixin _1300($name, $value) {
+    @media(max-width: 1300.98px) {
+        #{$name}: $value;
+    }
+}
+
+@mixin _1620($name, $value) {
+    @media(max-width: 1620.98px) {
+        #{$name}: $value;
+    }
+}
+
+@mixin _1080($name, $value) {
+    @media(max-width: 1080.98px) {
+        #{$name}: $value;
+    }
+}
+
+@mixin _1048($name, $value) {
+    @media(max-width: 1048.98px) {
+        #{$name}: $value;
+    }
+}
+
+@mixin _1199($name, $value) {
+    @media(max-width: 1199.98px) {
+        #{$name}: $value;
+    }
+}
+
+@mixin _991($name, $value) {
+    @media(max-width: 991.98px) {
+        #{$name}: $value;
+    }
+}
+
+@mixin _767($name, $value) {
+    @media(max-width: 767.98px) {
+        #{$name}: $value;
+    }
+}
+
+@mixin _680($name, $value) {
+    @media(max-width: 680.98px) {
+        #{$name}: $value;
+    }
+}
+
+@mixin _600($name, $value) {
+    @media(max-width: 600.98px) {
+        #{$name}: $value;
+    }
+}
+
+@mixin _575($name, $value) {
+    @media(max-width: 575.98px) {
+        #{$name}: $value;
+    }
+}
+
+@mixin _420($name, $value) {
+    @media(max-width: 420.98px) {
+        #{$name}: $value;
+    }
+}
+
+@mixin _470($name, $value) {
+    @media(max-width: 470.98px) {
+        #{$name}: $value;
+    }
+}
+
+@mixin _370($name, $value) {
+    @media(max-width: 370.98px) {
+        #{$name}: $value;
+    }
+}
+
+@mixin _320($name, $value) {
+    @media(max-width: 319.98px) {
+        #{$name}: $value;
+    }
+}
+
+
+@mixin _1920-block {
+    @media(max-width: 1920.98px) {
+        @content;
+    }
+}
+
+@mixin _1300-block {
+    @media(max-width: 1300.98px) {
+        @content;
+    }
+}
+
+@mixin _1620-block {
+    @media(max-width: 1620.98px) {
+        @content;
+    }
+}
+
+
+@mixin _1199-block {
+    @media(max-width: 1199.98px) {
+        @content;
+    }
+}
+
+@mixin _1080-block {
+    @media(max-width: 1080.98px) {
+        @content;
+    }
+}
+
+@mixin _1048-block {
+    @media(max-width: 1048.98px) {
+        @content;
+    }
+}
+
+
+@mixin _991-block {
+    @media(max-width: 991.98px) {
+        @content;
+    }
+}
+
+@mixin _767-block {
+    @media(max-width: 767.98px) {
+        @content;
+    }
+}
+
+@mixin _680-block {
+    @media(max-width: 680.98px) {
+        @content;
+    }
+}
+
+@mixin _600-block {
+    @media(max-width: 600.98px) {
+        @content;
+    }
+}
+
+@mixin _575-block {
+    @media(max-width: 575.98px) {
+        @content;
+    }
+}
+
+@mixin _470-block {
+    @media(max-width: 470.98px) {
+        @content;
+    }
+}
+
+@mixin _420-block {
+    @media(max-width: 420.98px) {
+        @content;
+    }
+}
+
+@mixin _370-block {
+    @media(max-width: 370.98px) {
+        @content;
+    }
+}
+
+@mixin _320-block {
+    @media(max-width: 319.98px) {
+        @content;
+    }
+}

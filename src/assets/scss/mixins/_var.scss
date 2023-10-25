@@ -1,0 +1,19 @@
+// Fonts
+$light: Roboto-light;
+$regular: Roboto-regular;
+$medium: Roboto-medium;
+$bold: Roboto-bold;
+$black: Roboto-black;
+$poppins: Poppins;
+$arial: Arial;
+
+
+$box-shadow: 0 0 20px rgba($color: #000000,
+    $alpha: 0.05,
+);
+
+:root {
+    --main-color: main-palette(500);
+    --main-bg: #fff;
+    --boxed-width: 1140px;
+}

@@ -1,0 +1,61 @@
+.stores {
+    height: 100%;
+    height: calc(100vh - 144px);
+
+    &-wrapper {
+        padding: 100px 0;
+    }
+
+    &-title {
+        color: #1E232A;
+        font-family: $medium;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 500;
+        margin-bottom: 17px;
+    }
+
+    th {
+        background: #f7f7f7 !important;
+        border: none !important;
+        outline: none !important;
+        box-shadow: none !important;
+    }
+
+    .stores-name {
+        color: red !important;
+        color: #C80006;
+        font-family: Roboto;
+        font-size: 16.286px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 120%;
+        /* 19.543px */
+        text-transform: capitalize;
+    }
+
+    .column-wrapper {
+        /*   position: relative;  */
+
+        .column-address {
+            max-width: 220px !important;
+            width: 100%;
+            color: #07316d;
+            font-family: $regular;
+            font-size: 14.863px;
+            font-weight: 4000;
+        }
+
+        .map {
+            max-width: 500px;
+            width: 100%;
+
+            position: absolute;
+            z-index: 2;
+            top: 500;
+            background: #fff;
+            border-radius: 16px;
+            /*   right: 0; */
+        }
+    }
+}

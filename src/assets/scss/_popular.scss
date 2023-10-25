@@ -1,0 +1,255 @@
+.second-carousel__container {
+
+
+    max-width: 1540px;
+    width: 100%;
+
+    margin: 0 auto;
+    margin-bottom: 100px;
+
+    overflow: hidden;
+
+    .header__second-carousel {
+        display: flex;
+        justify-content: space-between;
+
+        .title__second-carousel {
+            color: #1E1E1E;
+            font-size: 24px;
+            font-family: $regular;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 24px;
+
+
+        }
+
+        .btn-scroll__second-carousel {
+            display: flex;
+
+            .btn-previous__second-carousel {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                width: 48px;
+                height: 48px;
+
+                border-radius: 24px;
+                background: #E5E5E5;
+
+                margin-right: 12px;
+
+                cursor: pointer;
+
+                img {
+                    width: 24px;
+                    height: 24px;
+
+                    transform: rotate(180deg);
+                }
+            }
+
+            .btn-next__second-carousel {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                width: 48px;
+                height: 48px;
+
+                border-radius: 24px;
+                background: #E5E5E5;
+
+                cursor: pointer;
+
+                img {
+                    width: 24px;
+                    height: 24px;
+                }
+            }
+        }
+    }
+
+    .body__second-carousel {
+        display: flex;
+        width: auto;
+
+        .card__second-carousel {
+            display: flex;
+            flex-direction: column;
+            max-width: 430px;
+            width: 100%;
+
+            @include _680-block {
+                max-width: 330px;
+            }
+
+            @include _420-block {
+                max-width: 400px;
+            }
+
+
+            .card-header__second-carousel {
+                display: flex;
+                overflow: hidden;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                position: relative;
+
+                max-width: 465px;
+
+                @media (max-width: 4000px) {
+                    height: 485px;
+                }
+
+                @include _1920-block {
+                    height: 485px;
+                }
+
+                @include _680-block {
+                    max-width: 330px;
+                    height: 335px;
+                }
+
+                @include _420-block {
+                    max-width: 400px;
+                    height: 355px;
+                }
+
+
+                width: 100%;
+
+
+                border-radius: 6px;
+
+                background-color: #F6F6F6;
+                transition: all .4s;
+
+                &:hover {
+                    background-color: rgba(30, 30, 30, 0.0745098039)
+                }
+
+                & img:hover {
+                    transform: scale(1.05);
+                }
+
+                img {
+                    max-width: 300px;
+                    transition: all .4s;
+                    width: 100%;
+
+                    @include _680-block {
+                        max-width: 220px;
+                    }
+
+                }
+
+                .card-title__second-carousel {
+                    position: absolute;
+                    top: 15px;
+                    right: 15px;
+
+                    display: none;
+                    align-items: center;
+
+                    img {
+                        margin-right: 11px;
+                        width: 24px;
+                        height: 27px;
+                    }
+
+                    a {
+                        padding: 5px 0 5px 11px;
+
+                        border-left: solid 2px #DFDFE6;
+
+                        color: #2283DC;
+
+                        font-size: 16px;
+                        font-family: $arial;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 16px;
+                        text-decoration: none;
+                    }
+                }
+            }
+
+            .card-body__second-carousel {
+                max-width: 465px;
+                width: 100%;
+
+
+                .card-copy__second-carousel {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    margin-top: 15px;
+
+                    .card-name__second-carousel {
+                        color: #606060;
+                        font-size: 19.635px;
+                        font-family: $regular;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 33.013px;
+                        letter-spacing: -0.275px;
+                        z-index: 1;
+
+                        @include _680-block {
+                            font-size: 15px;
+                        }
+                    }
+
+                    .card-price__second-carousel {
+                        color: #A18A68;
+                        z-index: 1;
+                        font-size: 19.635px;
+                        font-family: $regular;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: normal;
+
+                        @include _680-block {
+                            font-size: 15px;
+                        }
+                    }
+                }
+
+                .card-btn__second-carousel {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    max-width: 165px;
+                    width: 100%;
+
+                    margin-top: 30px;
+                    padding: 10px 0;
+                    border-radius: 8.253px;
+                    border: 2px solid #DEE2E7;
+
+                    text-decoration: none;
+
+                    img {
+                        width: 23px;
+                        height: 23px;
+
+                        margin: 0 13px 0 13px;
+                    }
+
+                    p {
+                        color: #2283DC;
+                        font-size: 16px;
+                        font-family: $regular;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: normal;
+                    }
+                }
+            }
+        }
+    }
+}
