@@ -1,7 +1,7 @@
 <template>
   <section class="second-carousel__container swiper container" ref="swiper">
     <div class="switch_arrows">
-      <p class="switch-arrows__txt">Популярные товары на сайте</p>
+      <p class="switch-arrows__txt">{{ $t("PopularProducts") }}</p>
       <div class="carousel_btn_container">
         <div
           class="btn_previous switch_carousel_btn_style complete_absence_on_the_page swiper-button-prev"

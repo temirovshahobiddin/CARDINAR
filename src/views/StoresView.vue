@@ -2,9 +2,13 @@
   <div class="stores">
     <div class="container">
       <div class="stores-wrapper">
-        <h3 class="stores-title">Наши официальные магазины</h3>
-        <DataTable :value="stores" responsiveLayout="scroll" style="width: 100%">
-          <Column header="Магазин ">
+        <h3 class="stores-title">{{ $t("officalStores") }}</h3>
+        <DataTable
+          :value="stores"
+          responsiveLayout="scroll"
+          style="width: 100%"
+        >
+          <Column :header="$t('store')">
             <template #body="rowData">
               <div style="max-width: 150px" class="stores-name">
                 {{ rowData.data.title }}
@@ -12,14 +16,13 @@
             </template></Column
           >
 
-          <Column field="address" header="Адрес">
+          <Column field="address" :header="$t('address')">
             <template #body="rowData">
               <div class="column-wrapper">
                 <div
                   class="column-address"
                   @mouseenter="showMap(rowData.data.address)"
                   @mouseleave="hideMap()"
-                  
                 >
                   {{ rowData.data.address }}
                   <div
@@ -32,9 +35,9 @@
             </template>
           </Column>
 
-          <Column field="district" header="Район"></Column>
-          <Column field="region" header="Регион"> </Column>
-          <Column field="phone_number" header="Телефон для связи">
+          <Column field="district" :header="$t('abstract')"></Column>
+          <Column field="region" :header="$t('region')"> </Column>
+          <Column field="phone_number" :header="$t('phoneNumberForContact')">
             <template #body="rowData">
               <div class="column-address">
                 {{ prettify(rowData.data.phone_number) }}

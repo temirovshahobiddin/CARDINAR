@@ -1,7 +1,7 @@
 <template>
   <div ref="swiper" class="swiper container">
     <div class="switch_arrows">
-      <p class="switch-arrows__txt">Премиум сегмент на сайте</p>
+      <p class="switch-arrows__txt">{{ $t("PremiumProducts") }}</p>
       <div class="carousel_btn_container">
         <div
           class="btn_previous switch_carousel_btn_style complete_absence_on_the_page swiper-button-prev"
@@ -35,7 +35,7 @@
 
           <div class="card_body card-wrapper">
             <div class="card_link">
-              <p>Подробнее....</p>
+              <p>{{$t("podrobnee")}}</p>
             </div>
           </div>
         </div>
@@ -154,7 +154,7 @@ export default {
           slidesPerView: 2.2,
           sliderPerGroup: 2,
         },
-        1500: {
+        1200: {
           slidesPerView: 2,
           sliderPerGroup: 2,
         },

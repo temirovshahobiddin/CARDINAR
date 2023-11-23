@@ -6,10 +6,10 @@
         <div class="header-left">
           <p class="header-title">CARDINAR</p>
           <p class="header-subtitle">{{ $t("cardinarDescription") }} <br /></p>
-          <p class="header-copy">Barcha GM mashinalari uchun</p>
+          <p class="header-copy">{{ $t("forAllGMCars") }}</p>
           <router-link to="shop" class="header-btn">
             <div class="header-btn__text">
-              <p>в магазин</p>
+              <p>{{ $t("store") }}</p>
               <div class="header-icon">
                 <i class="far fa-long-arrow-right arrow-right"></i>
               </div>
@@ -19,7 +19,7 @@
         <div class="header-wrapper__rigth">
           <router-link to="shop" class="header-btn">
             <div class="header-btn__text">
-              <p>в магазин</p>
+              <p>{{ $t("toStore") }}</p>
               <div class="header-icon">
                 <i class="far fa-long-arrow-right arrow-right"></i>
               </div>

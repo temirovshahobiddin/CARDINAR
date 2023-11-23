@@ -5,7 +5,7 @@
         <img :src="img" alt="" class="new-img" />
         <div class="new-content">
           <h3 class="new-content__action">NEW</h3>
-          <h3 class="new-content__title">Накидка на торпеду</h3>
+          <h3 class="new-content__title">{{ $t("dashboardCovers") }}</h3>
 
           <a href="#!" class="new-content__link">Shop Now</a>
         </div>

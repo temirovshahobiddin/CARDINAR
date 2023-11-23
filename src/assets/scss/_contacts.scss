@@ -1,5 +1,6 @@
 .contacts {
     margin-top: 60px;
+
     .shop-entries {
         display: flex;
         column-gap: 5px;
@@ -53,10 +54,11 @@
                     margin-bottom: 11px;
                     max-width: 925px;
                     width: 100%;
+                    padding: 10px;
 
                     @include _680-block {
                         max-width: 500px;
-                    
+
                     }
                 }
             }

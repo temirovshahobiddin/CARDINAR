@@ -3,10 +3,21 @@
     <div class="constructor-wrapper">
       <div class="constructor-settings">
         <div class="constructor-mark constructor-inner">
-          <Dropdown class="constructor-dropdown" v-model="selectedBrand" :options="carBrand" optionLabel="title"
-            :filter="true" placeholder="Выберите марку" :showClear="true" @change="handleBrandChange(selectedBrand)">
+          <Dropdown
+            class="constructor-dropdown"
+            v-model="selectedBrand"
+            :options="carBrand"
+            optionLabel="title"
+            :filter="true"
+            :placeholder="$t('choiceMark')"
+            :showClear="true"
+            @change="handleBrandChange(selectedBrand)"
+          >
             <template #value="slotProps">
-              <div class="country-item country-item-value" v-if="slotProps.value">
+              <div
+                class="country-item country-item-value"
+                v-if="slotProps.value"
+              >
                 <img :src="require('@/assets/img/constructor/icon.svg')" />
                 <div>{{ slotProps.value.title }}</div>
               </div>
@@ -23,10 +34,20 @@
           </Dropdown>
         </div>
         <div class="constructor-model constructor-inner">
-          <Dropdown class="constructor-dropdown" v-model="selectedModel" :options="ConstructorCarModel.articuls"
-            optionLabel="car_model" :filter="true" placeholder="Выберите модель" :showClear="true">
+          <Dropdown
+            class="constructor-dropdown"
+            v-model="selectedModel"
+            :options="ConstructorCarModel.articuls"
+            optionLabel="car_model"
+            :filter="true"
+            :placeholder="$t('choiceModel')"
+            :showClear="true"
+          >
             <template #value="slotProps">
-              <div class="country-item country-item-value" v-if="slotProps.value">
+              <div
+                class="country-item country-item-value"
+                v-if="slotProps.value"
+              >
                 <img :src="require('@/assets/img/constructor/icon.svg')" />
                 <div>{{ slotProps.value.car_model.title }}</div>
               </div>
@@ -43,11 +64,21 @@
           </Dropdown>
         </div>
         <div class="constructor-seat constructor-inner">
-          <Dropdown class="constructor-dropdown" v-model="selectedSeatCover" :options="constructorProduct"
-            optionLabel="title" :filter="true" :placeholder="placeholderText" :showClear="true"
-            :disabled="!selectedModel || !selectedBrand">
+          <Dropdown
+            class="constructor-dropdown"
+            v-model="selectedSeatCover"
+            :options="constructorProduct"
+            optionLabel="title"
+            :filter="true"
+            :placeholder="$t('modelSeatCover')"
+            :showClear="true"
+            :disabled="!selectedModel || !selectedBrand"
+          >
             <template #value="slotProps">
-              <div class="country-item country-item-value" v-if="slotProps.value">
+              <div
+                class="country-item country-item-value"
+                v-if="slotProps.value"
+              >
                 <img :src="require('@/assets/img/constructor/seatcover.svg')" />
                 <div>{{ slotProps.value.title }}</div>
               </div>
@@ -66,21 +97,46 @@
       </div>
       <div class="constructor-preview__container">
         <div class="constructor-preview">
-          <img v-if="!itsFloors" :src="picked == 'one'
-            ? activeCase.mainPhoto.imgLogo
-            : activeCase.mainPhoto.imgNotLogo
-            " alt="" class="constructor-main__img constructor-img" />
-          <img :src="defaultKant" :style="{
-            display: defaultKant ? 'block' : 'none',
-          }" alt="" class="constructor-kant__img constructor-img constructor-change" />
-          <img :src="defaultStitch" :style="{
-            display: defaultStitch ? 'block' : 'none',
-          }" alt="" class="constructor-stitch__img constructor-img constructor-change" />
-          <img :src="defaultAside" :style="{
-            display: defaultAside ? 'block' : 'none',
-          }" alt="" class="constructor-aside__img constructor-img constructor-change" />
-          <img v-if="itsFloors && picked == 'one'" :src="picked == 'one' ? activeCase.podpyatnik : ''" alt=""
-            class="constructor-main__img constructor-img" />
+          <img
+            v-if="!itsFloors"
+            :src="
+              picked == 'one'
+                ? activeCase.mainPhoto.imgLogo
+                : activeCase.mainPhoto.imgNotLogo
+            "
+            alt=""
+            class="constructor-main__img constructor-img"
+          />
+          <img
+            :src="defaultKant"
+            :style="{
+              display: defaultKant ? 'block' : 'none',
+            }"
+            alt=""
+            class="constructor-kant__img constructor-img constructor-change"
+          />
+          <img
+            :src="defaultStitch"
+            :style="{
+              display: defaultStitch ? 'block' : 'none',
+            }"
+            alt=""
+            class="constructor-stitch__img constructor-img constructor-change"
+          />
+          <img
+            :src="defaultAside"
+            :style="{
+              display: defaultAside ? 'block' : 'none',
+            }"
+            alt=""
+            class="constructor-aside__img constructor-img constructor-change"
+          />
+          <img
+            v-if="itsFloors && picked == 'one'"
+            :src="picked == 'one' ? activeCase.podpyatnik : ''"
+            alt=""
+            class="constructor-main__img constructor-img"
+          />
         </div>
       </div>
 
@@ -92,7 +148,7 @@
             </button>
             <div class="slide-title">
               <h3 class="constructor-title" :key="currentSlideName">
-                {{ currentSlideName }}
+                {{ $t(currentSlideName) }}
               </h3>
               <div class="slider-fraction">
                 {{ currentIndex + 1 }}<span>/{{ slides.length }}</span>
@@ -104,27 +160,46 @@
             </button>
           </div>
           <div class="slider-container">
-            <div class="slider-wrapper" :style="{ transform: `translateX(-${currentIndex * 100}%)` }">
+            <div
+              class="slider-wrapper"
+              :style="{ transform: `translateX(-${currentIndex * 100}%)` }"
+            >
               <div v-if="!itsFloors" class="slider-slide">
                 <div class="constructor-btns">
-                  <div class="constructor-btn" :class="{ 'constructor-btn__active': switchMaterial }"
-                    @click="switchMaterial = false">
-                    экокожа 100%
+                  <div
+                    class="constructor-btn"
+                    :class="{ 'constructor-btn__active': switchMaterial }"
+                    @click="switchMaterial = false"
+                  >
+                    {{ $t("ecoLeather") }}
                   </div>
-                  <div class="constructor-btn" :class="{ 'constructor-btn__active': !switchMaterial }"
-                    @click="switchMaterial = true">
-                    шотландский материал
+                  <div
+                    class="constructor-btn"
+                    :class="{ 'constructor-btn__active': !switchMaterial }"
+                    @click="switchMaterial = true"
+                  >
+                    {{ $t("scotlandMaterial") }}
                   </div>
                 </div>
               </div>
               <div class="slider-slide">
                 <div class="constructor-colors">
                   <div class="constructor-select">
-                    <div label="" class="constructor-select__border" :class="{
-                      'constructor-select__color-selected':
-                        item.activeColorBtn,
-                    }" v-for="item in colorBtnKant" :key="item.id" @click="insertDefaultKant(item.id)">
-                      <div class="constructor-select__color" :style="item"></div>
+                    <div
+                      label=""
+                      class="constructor-select__border"
+                      :class="{
+                        'constructor-select__color-selected':
+                          item.activeColorBtn,
+                      }"
+                      v-for="item in colorBtnKant"
+                      :key="item.id"
+                      @click="insertDefaultKant(item.id)"
+                    >
+                      <div
+                        class="constructor-select__color"
+                        :style="item"
+                      ></div>
                     </div>
                   </div>
                 </div>
@@ -132,11 +207,21 @@
               <div v-if="!itsFloors" class="slider-slide">
                 <div class="constructor-colors">
                   <div class="constructor-select">
-                    <div label="" class="constructor-select__border" :class="{
-                      'constructor-select__color-selected':
-                        item.activeColorBtn,
-                    }" v-for="item in colorBtnStitch" :key="item.id" @click="insertdefaultStitch(item.id)">
-                      <div class="constructor-select__color" :style="item"></div>
+                    <div
+                      label=""
+                      class="constructor-select__border"
+                      :class="{
+                        'constructor-select__color-selected':
+                          item.activeColorBtn,
+                      }"
+                      v-for="item in colorBtnStitch"
+                      :key="item.id"
+                      @click="insertdefaultStitch(item.id)"
+                    >
+                      <div
+                        class="constructor-select__color"
+                        :style="item"
+                      ></div>
                     </div>
                   </div>
                 </div>
@@ -144,11 +229,21 @@
               <div class="slider-slide">
                 <div class="constructor-colors">
                   <div class="constructor-select">
-                    <div label="" class="constructor-select__border" :class="{
-                      'constructor-select__color-selected':
-                        item.activeColorBtn,
-                    }" v-for="item in colorBtnAside" :key="item.id" @click="insertdefaultAside(item.id)">
-                      <div class="constructor-select__color" :style="item"></div>
+                    <div
+                      label=""
+                      class="constructor-select__border"
+                      :class="{
+                        'constructor-select__color-selected':
+                          item.activeColorBtn,
+                      }"
+                      v-for="item in colorBtnAside"
+                      :key="item.id"
+                      @click="insertdefaultAside(item.id)"
+                    >
+                      <div
+                        class="constructor-select__color"
+                        :style="item"
+                      ></div>
                     </div>
                   </div>
                 </div>
@@ -156,15 +251,25 @@
               <div class="slider-slide">
                 <div class="constructor-radiobutton">
                   <div class="field-radiobutton">
-                    <RadioButton id="one" name="one" value="one" v-model="picked" />
+                    <RadioButton
+                      id="one"
+                      name="one"
+                      value="one"
+                      v-model="picked"
+                    />
                     <label for="one" class="slider-slide__text">{{
-                      firstRadio
+                      $t(toString(firstRadio))
                     }}</label>
                   </div>
                   <div class="field-radiobutton">
-                    <RadioButton id="two" name="two" value="two" v-model="picked" />
+                    <RadioButton
+                      id="two"
+                      name="two"
+                      value="two"
+                      v-model="picked"
+                    />
                     <label for="two" class="slider-slide__text">{{
-                      secondRadio
+                      $t(toString(secondRadio))
                     }}</label>
                   </div>
                 </div>
@@ -176,37 +281,52 @@
       <div class="constructor-verify">
         <div class="constructor-verify__wrapper">
           <div class="constructor-verify__left">
-            <a class="constructor-btn" @click="openModal()">Оставить заявку</a>
-            <a class="constructor-btn" @click="downloadAsJpg">Cохраниь в Jpg</a>
+            <a class="constructor-btn" @click="openModal()">{{
+              $t("submitInquiry")
+            }}</a>
+            <a class="constructor-btn" @click="downloadAsJpg">{{
+              $t("downloadAsImage")
+            }}</a>
           </div>
           <div class="constructor-verify__right">
             <p class="constructor-verify__content">
-              {{ constructorText }} . <br />
-              Конструктор чехлов рассчитан на 4-ёх местный автомобиль - точную
-              стоимость комплекта уточняйте у наших менеджеров Срок пошива от
-              15-25 рабочих дней .
+              {{ $t(constructorText) }} . <br />
+              {{ $t("constructorText") }}
             </p>
           </div>
         </div>
-        <Dialog header=" " :visible.sync="displayModal" containerStyle="max-width: 688px; width: 100%;" :modal="true">
-          <form class="constructor-modal" style="
+        <Dialog
+          header=" "
+          :visible.sync="displayModal"
+          containerStyle="max-width: 688px; width: 100%;"
+          :modal="true"
+        >
+          <form
+            class="constructor-modal"
+            style="
               display: flex;
               align-self: center;
               flex-direction: column;
               align-items: center;
               justify-content: center;
               width: 100%;
-            ">
-            <h3 class="constructor-modal__title" style="
+            "
+          >
+            <h3
+              class="constructor-modal__title"
+              style="
                 color: var(--color-dark-dark, #23262f);
                 text-align: center;
                 font-family: $medium;
                 font-size: 32px;
                 margin-bottom: 28px;
-              ">
+              "
+            >
               Контактная информация
             </h3>
-            <p class="constructor-modal__txt" style="
+            <p
+              class="constructor-modal__txt"
+              style="
                 color: var(--color-dark-dark-2, #87898e);
                 text-align: center;
                 font-family: $regular;
@@ -214,59 +334,106 @@
                 max-width: 503px;
                 width: 100%;
                 margin-bottom: 47px;
-              ">
+              "
+            >
               Конструктор чехлов рассчитан на 4-ёх местный автомобиль - точную
               стоимость комплекта уточняйте у наших менеджеров
             </p>
 
-            <div class="input-wrapper input-group" style="
+            <div
+              class="input-wrapper input-group"
+              style="
                 border: 2px solid #dfdfe6;
                 max-width: 482px;
                 width: 100%;
                 margin-bottom: 25px;
                 border-radius: 12px;
                 padding: 8px;
-              ">
-              <input required type="text" style="color: #1e1e1e; padding: 16px" id="help-form__name" class="input"
-                placeholder="Имя" autocomplete="off" v-model="constructorUserName" />
+              "
+            >
+              <input
+                required
+                type="text"
+                style="color: #1e1e1e; padding: 16px"
+                id="help-form__name"
+                class="input"
+                placeholder="Имя"
+                autocomplete="off"
+                v-model="constructorUserName"
+              />
             </div>
-            <div class="input-wrapper input-group" style="
+            <div
+              class="input-wrapper input-group"
+              style="
                 border: 2px solid #dfdfe6;
                 max-width: 482px;
                 width: 100%;
                 margin-bottom: 25px;
                 border-radius: 12px;
                 padding: 8px;
-              ">
-              <input required type="text" style="color: #1e1e1e; padding: 16px" id="help-form__numb-phone" class="input"
-                placeholder="Номер телефона" autocomplete="off" v-model="constructorUserPhone" />
+              "
+            >
+              <input
+                required
+                type="text"
+                style="color: #1e1e1e; padding: 16px"
+                id="help-form__numb-phone"
+                class="input"
+                placeholder="Номер телефона"
+                autocomplete="off"
+                v-model="constructorUserPhone"
+              />
             </div>
-            <div class="input-wrapper input-group" style="
+            <div
+              class="input-wrapper input-group"
+              style="
                 border: 2px solid #dfdfe6;
                 max-width: 482px;
                 width: 100%;
                 margin-bottom: 25px;
                 border-radius: 12px;
                 padding: 8px;
-              ">
-              <input type="text" style="color: #1e1e1e; padding: 16px" id="help-form__user-name" class="input"
-                placeholder="Username" autocomplete="off" v-model="constructorUserTg" />
+              "
+            >
+              <input
+                type="text"
+                style="color: #1e1e1e; padding: 16px"
+                id="help-form__user-name"
+                class="input"
+                placeholder="Username"
+                autocomplete="off"
+                v-model="constructorUserTg"
+              />
             </div>
           </form>
           <template #footer>
-            <div class="constructor-footer" style="
+            <div
+              class="constructor-footer"
+              style="
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 width: 100%;
-              ">
-              <Button label="No" icon="pi pi-times" @click="createConstructorOrder" class="p-button-text" />
-              <button label="Оставить заявку" @click="createConstructorOrder()" :class="{
-                'is-success': isSubmitSuccess,
-                'is-error': isSubmitError,
-                'is-transitioning': isTransitioning,
-                'is-timeout': isSubmitTimeout,
-              }" autofocus class="constructor-modal__submit" style="
+              "
+            >
+              <Button
+                label="No"
+                icon="pi pi-times"
+                @click="createConstructorOrder"
+                class="p-button-text"
+              />
+              <button
+                label="Оставить заявку"
+                @click="createConstructorOrder()"
+                :class="{
+                  'is-success': isSubmitSuccess,
+                  'is-error': isSubmitError,
+                  'is-transitioning': isTransitioning,
+                  'is-timeout': isSubmitTimeout,
+                }"
+                autofocus
+                class="constructor-modal__submit"
+                style="
                   max-width: 482px;
                   width: 100%;
                   border-radius: 50px;
@@ -277,11 +444,12 @@
                   box-shadow: none !important;
                   margin-bottom: 100px;
                   padding: 20px 0;
-                ">
+                "
+              >
                 {{
                   isSubmitSuccess
-                  ? "Заявка отправлено"
-                  : isSubmitError
+                    ? "Заявка отправлено"
+                    : isSubmitError
                     ? "Оставить заявку"
                     : "Оставить заявку"
                 }}
@@ -332,7 +500,6 @@ export default {
     InputText,
   },
   data: () => ({
-    placeHolderMarkText: '<i class="fas fa-car-side"></i>  Выберите марку',
     selectedBrand: null,
     selectedModel: null,
     selectedSeatCover: null,
@@ -351,11 +518,11 @@ export default {
     slideNames: [],
 
     slideNamesSeat: [
-      "Материал авточехла",
-      "Цвет канта",
-      "Цвет строчки",
-      "Цвет боковых вставок",
-      "Логотип",
+      "materialSeatCover",
+      "colorOfKant",
+      "colorOfStitch",
+      "colorOfsmth",
+      "logo",
     ],
     formData: [],
     currentIndex: 0,
@@ -773,9 +940,9 @@ export default {
       const routerParamsId = this.$route.params.id;
 
       if (routerParamsId === "2") {
-        return "Форма поликов будет меняться в зависимости от модели машины";
+        return "constructorPolik";
       } else {
-        return "Цвет цифрового авточехла может немного отличаться, от реального цвета ";
+        return "constructorSeatcover";
       }
     },
 
@@ -835,14 +1002,14 @@ export default {
       if (this.itsFloors) {
         return "С подпятником";
       } else {
-        return "С логотипом";
+        return "withLogo";
       }
     },
     secondRadio() {
       if (this.itsFloors) {
         return "Без подпятника";
       } else {
-        return "Без логотипа";
+        return "withoutLogo";
       }
     },
   },
@@ -1024,7 +1191,6 @@ export default {
     await this.getConstructorCarBrand();
     this.getConstructorCarModels();
     this.getSeatModel();
-
     const routerParamsId = this.$route;
 
     this.idPage = this.$route.params.id;
@@ -1197,8 +1363,7 @@ export default {
 .slide-fade-enter,
 .slide-fade-leave-to
 
-/* .slide-fade-leave-active в <=2.1.8 */
-  {
+/* .slide-fade-leave-active в <=2.1.8 */ {
   opacity: 0;
   transform: translateX(-10px);
   /* или любое другое значение, которое вы хотите */

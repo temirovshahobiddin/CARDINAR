@@ -2,7 +2,7 @@
   <section class="login">
     <div class="login-wrapper">
       <form action="" class="login-form" @submit.prevent="submitRegister">
-        <h3 class="login-title">Регистрация</h3>
+        <h3 class="login-title">{{ $t("registration") }}</h3>
         <div class="input-wrapper input-group login-input">
           <input
             type="text"
@@ -14,9 +14,9 @@
             v-model="registerUsername"
           />
 
-          <label for="help-form__name" class="input-label login-label"
-            >Имя</label
-          >
+          <label for="help-form__name" class="input-label login-label">{{
+            $t("username")
+          }}</label>
         </div>
         <div class="input-wrapper input-group login-input">
           <input
@@ -29,9 +29,9 @@
             v-model="registerNumber"
           />
 
-          <label for="help-form__numb-phone" class="input-label login-label"
-            >Телефон</label
-          >
+          <label for="help-form__numb-phone" class="input-label login-label">{{
+            $t("phone_number")
+          }}</label>
         </div>
         <div class="input-wrapper input-group login-input">
           <input
@@ -59,9 +59,9 @@
             v-model="registerPassword1"
           />
 
-          <label for="help-form__numb-phone" class="input-label login-label"
-            >Пароль</label
-          >
+          <label for="help-form__numb-phone" class="input-label login-label">{{
+            $t("password")
+          }}</label>
         </div>
         <div class="input-wrapper input-group login-input">
           <input
@@ -75,14 +75,14 @@
           />
 
           <label for="help-form__numb-phone" class="input-label login-label"
-            >Подтверждение пароля</label
+            >{{$t("password1")}}</label
           >
         </div>
         <button type="submit" class="login-submit login-btn">
-          регистрация
+          {{$t("registration")}}
         </button>
         <router-link to="/login" class="login-register login-btn"
-          >Авторизация</router-link
+          >{{$t("avtorizatsiya")}}</router-link
         >
       </form>
     </div>
@@ -139,7 +139,7 @@ export default {
               localStorage.setItem("token", token);
               if (this.$route.path !== "/user") {
                 this.$router.push("/user");
-       /*          window.location.reload(); */
+                /*          window.location.reload(); */
               }
             })
             .catch((error) => {

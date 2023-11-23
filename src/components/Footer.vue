@@ -8,22 +8,30 @@
         <div class="footer-inner">
           <div class="footer-inner__about">
             <div class="footer-info footer-about__card">
-              <h3 class="footer-info__title footer-about__title">Информация</h3>
+              <h3 class="footer-info__title footer-about__title">
+                {{ $t("information") }}
+              </h3>
               <ul class="footer-list">
                 <li class="footer-item footer__link-animation">
-                  <router-link to="/shop" class="footer-link">Каталог</router-link>
+                  <router-link to="/shop" class="footer-link">{{
+                    $t("catalog")
+                  }}</router-link>
                 </li>
                 <li class="footer-item footer__link-animation">
-                  <router-link to="/constructor" class="footer-link">Конструктор</router-link>
+                  <router-link to="/constructor" class="footer-link">{{
+                    $t("builder")
+                  }}</router-link>
                 </li>
                 <li class="footer-item footer__link-animation">
-                  <router-link to="/stores" class="footer-link">Где купить?</router-link>
+                  <router-link to="/stores" class="footer-link">{{
+                    $t("whereToBuy")
+                  }}</router-link>
                 </li>
               </ul>
             </div>
             <div class="footer-contacts footer-about__card">
               <h3 class="footer-contacts__title footer-about__title">
-                Номер телефона
+                {{$t("footerPhone")}}
               </h3>
               <ul class="footer-list">
                 <li class="footer-item" v-for="tel in phone" :key="tel.id">
@@ -35,7 +43,7 @@
             </div>
             <div class="footer__new-line"></div>
             <div class="footer-email footer-about__card">
-              <h3 class="footer-email__title footer-about__title">Почта</h3>
+              <h3 class="footer-email__title footer-about__title">E-mail</h3>
               <ul class="footer-list">
                 <li class="footer-item">
                   <a
@@ -50,7 +58,7 @@
             </div>
             <div class="footer-address footer-about__card">
               <h3 class="footer-address__title footer-about__title">
-                Адрес (офис)
+                {{$t("officeAddress")}}
               </h3>
               <ul class="footer-list">
                 <li class="footer-item">
@@ -84,7 +92,7 @@
     </div>
     <div class="cm-mark-container">
       <a class="cm-mark" href="https://centrismedia.uz/" target="_blanck"
-        >СДЕЛАНО В <img class="cm-mark-img" :src="cmMark" alt=""
+        >Developed by <img class="cm-mark-img" :src="cmMark" alt=""
       /></a>
     </div>
   </footer>

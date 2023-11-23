@@ -2,7 +2,7 @@
   <section class="login">
     <div class="login-wrapper">
       <form action="" class="login-form" @submit.prevent="submitLogin">
-        <h3 class="login-title">Вход / Авторизация</h3>
+        <h3 class="login-title">{{ $t("authorization") }}</h3>
         <div class="input-wrapper input-group login-input">
           <input
             type="text"
@@ -14,9 +14,9 @@
             v-model="username"
           />
 
-          <label for="help-form__name" class="input-label login-label"
-            >Имя</label
-          >
+          <label for="help-form__name" class="input-label login-label">{{
+            $t("username")
+          }}</label>
         </div>
         <div class="input-wrapper input-group login-input">
           <input
@@ -29,16 +29,16 @@
             v-model="password"
           />
 
-          <label for="help-form__numb-phone" class="input-label login-label"
-            >Пароль</label
-          >
+          <label for="help-form__numb-phone" class="input-label login-label">{{
+            $t("password")
+          }}</label>
         </div>
         <button href="#!" type="submit" class="login-submit login-btn">
-          войти
+          {{ $t("login") }}
         </button>
-        <router-link to="/register" class="login-register login-btn"
-          >регистрация</router-link
-        >
+        <router-link to="/register" class="login-register login-btn">{{
+          $t("registration")
+        }}</router-link>
         <a @click="emailAdd()" class="forgot__password">Забыли пароль?</a>
       </form>
     </div>

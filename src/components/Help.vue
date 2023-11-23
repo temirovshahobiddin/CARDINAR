@@ -3,9 +3,9 @@
     <div class="container">
       <div class="help-form__wrapper">
         <div class="help-form__left">
-          <h3 class="help-left__title">НУЖНА ПОМОЩЬ С ВЫБОРОМ?</h3>
+          <h3 class="help-left__title">{{ $t("inquiryTitle") }}</h3>
           <p class="help-left__txt">
-            Оставьте свои контакты и наш специалист проконсультирует вас
+            {{ $t("inquiryText") }}
           </p>
           <div class="help-left__icon">
             <i class="far fa-arrow-right"></i>
@@ -27,7 +27,9 @@
                 v-model="name"
               />
 
-              <label for="help-form__name" class="input-label">Имя</label>
+              <label for="help-form__name" class="input-label">{{
+                $t("username")
+              }}</label>
             </div>
             <div class="input-wrapper input-group">
               <input
@@ -39,9 +41,9 @@
                 v-model="phoneNumber"
               />
 
-              <label for="help-form__numb-phone" class="input-label"
-                >Номер телефона</label
-              >
+              <label for="help-form__numb-phone" class="input-label">{{
+                $t("phone_number")
+              }}</label>
             </div>
             <div class="input-wrapper input-group">
               <input
@@ -59,7 +61,7 @@
             </div>
 
             <button class="help-right__btn">
-              <p class="help-btn__inner">отправить</p>
+              <p class="help-btn__inner">{{ $t("submit") }}</p>
             </button>
           </form>
         </div>
@@ -89,7 +91,7 @@ export default {
         full_name: this.name,
         phone_number: this.phoneNumber,
         email: this.username,
-        is_call: true
+        is_call: true,
       };
       const jsonFormData = JSON.stringify(formData);
 
@@ -116,7 +118,7 @@ export default {
         })
         .catch((error) => {
           // Handle error if needed
-  
+
           Swal.fire({
             icon: "error",
             title: error.response.data.phone_number[0],

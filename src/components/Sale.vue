@@ -4,11 +4,10 @@
             <div class="sale-wrapper">
                 <div class="sale-left">
                     <h3 class="sale-title">SALE <span>от 20%</span></h3>
-                    <p class="sale-txt">Магазин CARDINAR предлагает скидки для своих клиентов, на различные модели
-                        авточехлов, поликом и накидок на торпеду</p>
+                    <p class="sale-txt">{{$t('saleText')}}</p>
                     <a class="sale-btn" href="#!">
                         <div class="sale-btn__text">
-                            <p>смотреть</p>
+                            <p>{{$t('look')}}</p>
                             <div class="sale-icon">
                                 <i class="far fa-long-arrow-right arrow-right"></i>
                             </div>
