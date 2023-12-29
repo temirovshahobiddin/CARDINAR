@@ -3,7 +3,7 @@
     <div class="navigation-chain__container container"></div>
 
     <!-- Заголовок страницы -->
-    <div class="checkout__title container">Оформить заказ</div>
+    <div class="checkout__title container">{{ $t("submitOrder") }}</div>
 
     <!-- Контейнер карточек -->
     <Spinner v-if="isLoading" />
@@ -86,7 +86,7 @@
         >
           <div class="form__shop-title" @click="toggleRegisterOpen">
             <div class="form__shop-title_numb">1</div>
-            <div class="form__shop-title_name">Регистрация</div>
+            <div class="form__shop-title_name">{{ $t("registration") }}</div>
             <i
               class="fal fa-chevron-down register-chevron"
               :class="{ rotate: openRegister }"
@@ -97,9 +97,9 @@
             :class="{ 'registration-opened': openRegister }"
           >
             <div class="form__buyer-row">
-              <p class="form__buyer-row_title">Ваше имя</p>
+              <p class="form__buyer-row_title">{{ $t("contactsName") }}</p>
               <input
-                placeholder="Ваше имя"
+                :placeholder="$t('contactsName')"
                 class="form__buyer-row_input"
                 type="text"
                 required
@@ -107,9 +107,11 @@
               />
             </div>
             <div class="form__buyer-row">
-              <p class="form__buyer-row_title">Ваш номер телефона</p>
+              <p class="form__buyer-row_title">
+                {{ $t("contactsPhoneNumber") }}
+              </p>
               <input
-                placeholder="Ваш номер телефона"
+                :placeholder="$t('contactsPhoneNumber')"
                 class="form__buyer-row_input"
                 type="tel"
                 required
@@ -117,32 +119,32 @@
                 v-model="regPhoneNumber"
                 @click="phoneNumberClick()"
               />
-              <label for="phone_number" class="input_label"
-                >Убедитесь, что номер телефона ввели верно!</label
-              >
+              <label for="phone_number" class="input_label">{{
+                $t("erer")
+              }}</label>
             </div>
             <div class="form__buyer-row">
-              <p class="form__buyer-row_title">Ваш Email</p>
+              <p class="form__buyer-row_title">{{ $t("contactsEmail") }}</p>
               <input
-                placeholder="Ваш Email "
+                :placeholder="$t('contactsEmail')"
                 class="form__buyer-row_input"
                 type="email "
                 v-model="regEmail"
               />
             </div>
             <div class="form__buyer-row">
-              <p class="form__buyer-row_title">Пароль</p>
+              <p class="form__buyer-row_title">{{ $t("password") }}</p>
               <input
-                placeholder="Пароль "
+                :placeholder="$t('password')"
                 class="form__buyer-row_input"
                 type="password1 "
                 v-model="password1"
               />
             </div>
             <div class="form__buyer-row">
-              <p class="form__buyer-row_title">Подтверждение пароля</p>
+              <p class="form__buyer-row_title">{{ $t("password1") }}</p>
               <input
-                placeholder="Подтверждение пароля "
+                :placeholder="$t('password1')"
                 class="form__buyer-row_input"
                 type="password2 "
                 v-model="password2"
@@ -150,11 +152,11 @@
             </div>
             <div class="form-registration__btns">
               <button type="submit" class="form-registration__btn">
-                Регистрация
+                {{ $t("registration") }}
               </button>
-              <router-link to="/login" class="form-registration__login"
-                >У вас есть аккаунт?</router-link
-              >
+              <router-link to="/login" class="form-registration__login">{{
+                $t("haveaccoutn")
+              }}</router-link>
             </div>
           </div>
         </form>
@@ -162,13 +164,13 @@
           <div class="form__shop-title">
             <div class="form__shop-title_numb">{{ hasToken ? "1" : "2" }}</div>
 
-            <div class="form__shop-title_name">Данные покупателя</div>
+            <div class="form__shop-title_name">{{$t("Данные")}}</div>
           </div>
 
           <div class="form__buyer-row">
-            <p class="form__buyer-row_title">Ваше имя</p>
+            <p class="form__buyer-row_title">{{ $t("contactsName") }}</p>
             <input
-              placeholder="Ваше имя"
+              :placeholder="$t('contactsName')"
               class="form__buyer-row_input"
               type="text"
               required
@@ -177,9 +179,9 @@
           </div>
 
           <div class="form__buyer-row">
-            <p class="form__buyer-row_title">Ваш номер телефона</p>
+            <p class="form__buyer-row_title">{{ $t("contactsPhoneNumber") }}</p>
             <input
-              placeholder="Ваш номер телефона"
+              :placeholder="$t('contactsPhoneNumber')"
               class="form__buyer-row_input"
               type="tel"
               required
@@ -187,18 +189,18 @@
               v-model="phoneNumber"
               @click="phoneNumberClick()"
             />
-            <label for="phone_number" class="input_label"
-              >Убедитесь, что номер телефона ввели верно!</label
-            >
+            <label for="phone_number" class="input_label">{{
+              $t("Убедитесь")
+            }}</label>
           </div>
 
           <div class="form__buyer-row">
-            <p class="form__buyer-row_title">Ваш Email</p>
+            <p class="form__buyer-row_title">{{ $t("contactsEmail") }}</p>
             <input
-              placeholder="Ваш Email "
+              :placeholder="$t('contactsEmail')"
               class="form__buyer-row_input"
               type="email "
-              v-model="email"
+              v-model="email" 
             />
           </div>
         </div>
@@ -206,7 +208,7 @@
         <div class="form__receiving">
           <div class="form__shop-title">
             <div class="form__shop-title_numb">{{ hasToken ? "2" : "3" }}</div>
-            <div class="form__shop-title_name">Выберите способ приёма</div>
+            <div class="form__shop-title_name">{{ $t("methodAdmission") }}</div>
           </div>
 
           <div class="form__receiving-row">
@@ -216,7 +218,7 @@
               value="Самовывоз"
               v-model="methodAdmission"
             />
-            <label for="reception1"> Самовывоз </label>
+            <label for="reception1"> {{ $t("reception") }} </label>
           </div>
 
           <div class="form__receiving-row">
@@ -226,7 +228,7 @@
               value="Доставка"
               v-model="methodAdmission"
             />
-            <label for="reception2"> Доставка </label>
+            <label for="reception2"> {{ $t("delivery") }} </label>
           </div>
           <div
             class="delivery-menu"
@@ -297,7 +299,7 @@
         >
           <div class="form__shop-title">
             <div class="form__shop-title_numb">{{ hasToken ? "3" : "4" }}</div>
-            <div class="form__shop-title_name">Выберите магазин</div>
+            <div class="form__shop-title_name">{{ $t("chooseStore") }}</div>
           </div>
 
           <div class="form__shop_input-drop">
@@ -307,7 +309,7 @@
               :options="stores"
               optionLabel="title"
               :filter="true"
-              placeholder="Выберите Магазин"
+              :placeholder="$t('chooseStore')"
               :showClear="true"
               :disabled="methodAdmission === 'Доставка'"
             >
@@ -354,7 +356,7 @@
                   : "5"
               }}
             </div>
-            <div class="form__shop-title_name">Способ оплаты</div>
+            <div class="form__shop-title_name">{{ $t("methodPayment") }}</div>
           </div>
 
           <div class="form__receiving-row">
@@ -364,7 +366,7 @@
               value="Наличными или картой"
               v-model="payment"
             />
-            <label for="payment1"> Наличными или картой при получении </label>
+            <label for="payment1"> {{ $t("naxt") }} </label>
           </div>
 
           <div class="form__receiving-row">
@@ -382,7 +384,7 @@
       <!-- Карточка формы -->
       <div class="form__card">
         <div class="form-card__body">
-          <div class="form-card__body-title">Коллекция</div>
+          <div class="form-card__body-title">{{ $t("collection") }}</div>
 
           <div class="form-card__body-line"></div>
 
@@ -392,33 +394,31 @@
           </div>
 
           <div class="form-card__body-item">
-            <p>Количество товаров</p>
+            <p>{{ $t("quantityProducts") }}</p>
             <p>{{ totalQuantity }}</p>
           </div>
 
           <div class="form-card__body-item">
-            <p>Способ оплаты</p>
+            <p>{{ $t("methodPayment") }}</p>
             <p>{{ payment }}</p>
           </div>
 
           <div class="form-card__body-item">
-            <p>Способ приёма</p>
+            <p>{{ $t("methodAdmission1") }}</p>
             <p>{{ methodAdmission }}</p>
           </div>
 
           <div class="form-card__body-line"></div>
 
           <div class="form-card__body-total">
-            <p>Общая сумма</p>
+            <p>{{ $t("totalSum") }}</p>
             <p>{{ prettifySum(totalPrice) }}</p>
           </div>
         </div>
         <div class="form-card__center">
-          Покупая товар без регистрации, вы не имеете возможность отслеживать
-          ход заказов и просматривать их историю, что бы иметь доступ к личному
-          кабинету,
+          {{ $t("orderText") }}
           <router-link to="/register" class="form-center__inner" href="">
-            пройдите регистрацию!</router-link
+            {{ $t("goreg") }}</router-link
           >
         </div>
 
@@ -426,8 +426,7 @@
           <div class="form-card__bottom-consent">
             <input form="buy" type="checkbox" id="consent" required />
             <label for="consent"
-              >Мною прочитаны и я даю согласие с документом
-              <a href="">Пользовательского соглашения</a></label
+              >{{ $t("oferta") }} <a href="">{{ $t("oferta1") }}</a></label
             >
           </div>
           <button
@@ -441,10 +440,10 @@
           >
             {{
               isSubmitSuccess
-                ? "ЗАКАЗ ОФОРМЛЕН"
+                ? $t("submitedOrder")
                 : isSubmitError
-                ? "ОФОРМИТЬ ЗАКАЗ"
-                : "ОФОРМИТЬ ЗАКАЗ"
+                ? $t("submitOrder")
+                : $t("submitOrder")
             }}
           </button>
           <p

@@ -258,7 +258,7 @@
                       v-model="picked"
                     />
                     <label for="one" class="slider-slide__text">{{
-                      $t(toString(firstRadio))
+                      $t(firstRadio)
                     }}</label>
                   </div>
                   <div class="field-radiobutton">
@@ -269,7 +269,7 @@
                       v-model="picked"
                     />
                     <label for="two" class="slider-slide__text">{{
-                      $t(toString(secondRadio))
+                      $t(secondRadio)
                     }}</label>
                   </div>
                 </div>

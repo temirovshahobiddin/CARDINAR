@@ -40,11 +40,11 @@
 
       <div class="info-block__info-container">
         <p class="info-block__title">{{ infoProduct.title }}</p>
-        <p class="info-block__subtitle">Доставка за 1 день / Бесплатно</p>
+        <p class="info-block__subtitle">{{ $t("freeDelivery") }}</p>
         <div class="info-block__line"></div>
 
         <div class="info-block__model-container">
-          <p>Выберите модель машины:</p>
+          <p>{{ $t("choiceCarMark") }}:</p>
           <div class="info-block__model-btn-container">
             <div
               class="info-block__model-btn"
@@ -65,28 +65,28 @@
         </div>
 
         <div class="info-block__price-container">
-          <p class="info-block__price-title">Цена:</p>
+          <p class="info-block__price-title">{{ $t("Amount") }}</p>
           <p class="info-block__price-body">
-            {{ prettifySum(totalSum()) }} сум
+            {{ prettifySum(totalSum()) }} {{ $t("sum") }}
           </p>
         </div>
         <div class="about-shop__container">
           <div class="about-shop__header-container">
             <div class="about-shop__header">
-              <div class="about-shop__title active">Описание</div>
+              <div class="about-shop__title active">{{ $t("descr") }}</div>
             </div>
           </div>
           <div class="about-shop__cope" v-html="infoProduct.description"></div>
         </div>
         <div class="info-block__footer">
           <div class="info-block__btn-add" @click="addToCart(infoProduct)">
-            Добавить в корзину
+            {{ $t("addToCart") }}
           </div>
           <div class="info-block__btn-buy" @click="openModal()">
-            Купить в один клик
+            {{ $t("buyOneClick") }}
           </div>
           <Dialog
-            header=" Купить в один клик "
+            :header="$t('buyOneClick')"
             :visible.sync="displayModal"
             containerStyle="max-width:543px; width: 100%; padding: 24px !important; border: none !important"
             :modal="true"
@@ -114,8 +114,7 @@
                   margin-bottom: 47px;
                 "
               >
-                *покупая товар в один клик (без регистрации), вы не имеете
-                возможность отслеживать ход заказов и просматривать их историю
+                {{ $t("butOneCliclText") }}
               </p>
 
               <div
@@ -135,7 +134,7 @@
                   style="color: #1e1e1e; padding: 16px"
                   id="help-form__name"
                   class="input"
-                  placeholder="Имя"
+                  :placeholder="$t('username')"
                   autocomplete="off"
                   v-model="userName"
                 />
@@ -157,7 +156,7 @@
                   style="color: #1e1e1e; padding: 16px"
                   id="help-form__numb-phone"
                   class="input"
-                  placeholder="Номер телефона"
+                  :placeholder="$t('footerPhone')"
                   autocomplete="off"
                   v-model="phoneNumber"
                 />
@@ -207,10 +206,10 @@
                 >
                   {{
                     isSubmitSuccess
-                      ? "ОТПРАВЛЕНО"
+                      ? $t("submitted")
                       : isSubmitError
-                      ? "ОТПРАВИТЬ"
-                      : "ОТПРАВИТЬ"
+                      ? $t("submit")
+                      : $t("submit")
                   }}
                 </button>
                 <p
@@ -218,7 +217,7 @@
                   :class="{ 'is-transitioning': isTransitioning }"
                   style="color: red"
                 >
-                  Что-то пошло не так. Пожалуйста, попробуйте ещё раз.
+                  {{ $t("submitError") }}
                 </p>
               </div>
             </template>

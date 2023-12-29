@@ -5,15 +5,15 @@
     <div class="basket__pos">
       <div class="basket__wrapper">
         <div class="aside__title">
-          <div class="basket__title">{{ $t("Корзина") }}</div>
+          <div class="basket__title">{{ $t("cart") }}</div>
           <a class="basket__clear" @click.prevent="clearCart()" href="">{{
-            $t("Отчистить корзину")
+            $t("clearCart")
           }}</a>
         </div>
         <Spinner v-if="isLoading" />
         <div v-else style="flex-grow: 1">
           <div v-if="cartItemCount === 0" class="basket-empty">
-            <p>Ваша корзина пуста</p>
+            <p>{{ $t("isCartEmpty") }}</p>
           </div>
           <div v-else>
             <div class="basket__item" v-for="item in cart" :key="item.id">
@@ -47,7 +47,11 @@
                 <div class="basket__minus" @click="decrementCartItem(item)">
                   -
                 </div>
-                <input type="number" class="basket__input"  v-model="item.quantity"/>
+                <input
+                  type="number"
+                  class="basket__input"
+                  v-model="item.quantity"
+                />
                 <div class="basket__plus" @click="incrementCartItem(item)">
                   +
                 </div>
@@ -61,10 +65,10 @@
         </div>
         <div class="aside__btn-container">
           <a class="aside__close" @click="toggleBasket">
-            {{ $t("Продолжить покупки") }}
+            {{ $t("continueShopping") }}
           </a>
           <div @click.prevent="redirectToCheckout" class="aside_buy">
-            {{ $t("Оформить заказ") }}
+            {{ $t("submitOrder") }}
           </div>
         </div>
       </div>
@@ -167,8 +171,8 @@ export default {
       if (this.cartItemCount === 0) {
         Swal.fire({
           icon: "error",
-          title: "Ваша корзина пуста!",
-          text: "Ваша корзина пуста. Пожалуйста, добавьте товары, прежде чем перейти к оформлению заказа.",
+          title: this.$t("isCartEmpty"),
+          text: this.$t("isEmptyModal"),
         });
       } else {
         this.$router.push("/verify-order");

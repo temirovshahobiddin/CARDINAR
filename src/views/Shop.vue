@@ -4,7 +4,7 @@
       <img :src="logo" alt="" style="max-width: 172px; width: 100%" />
       <form action="" class="filter-form">
         <ul class="filter-list filter-categories">
-          <h3 class="filter-list__title">Категории</h3>
+          <h3 class="filter-list__title">{{ $t("catygorie") }}</h3>
           <li
             class="filter-list__item"
             v-for="item in categories"
@@ -21,7 +21,7 @@
           </li>
         </ul>
         <ul class="filter-list filter-auto">
-          <h3 class="filter-list__title">Модель машины</h3>
+          <h3 class="filter-list__title">{{ $t("modelCar") }}</h3>
           <li
             class="filter-list__item"
             v-for="brand in carBrand"
@@ -39,7 +39,7 @@
           </li>
         </ul>
         <ul class="filter-list filter-mark">
-          <h3 class="filter-list__title">Марка машины</h3>
+          <h3 class="filter-list__title">{{ $t("markCar") }}</h3>
           <li
             class="filter-list__item"
             v-for="model in carModel"
@@ -56,17 +56,17 @@
           </li>
           <!-- Проверяем, есть ли элементы в carModel или нет -->
           <div v-if="!carModel.length" class="empty-txt">
-            Вы ещё не выбрали марку
+            {{ $t("errormark") }}
           </div>
         </ul>
 
         <h3 class="sum">
-          {{ prettifySum(100000 * value4[0]) }} сум -
-          {{ prettifySum(100000 * value4[1]) }} сум
+          {{ prettifySum(100000 * value4[0]) }} {{ $t("sum") }} -
+          {{ prettifySum(100000 * value4[1]) }} {{ $t("sum") }}
         </h3>
 
         <Slider v-model="value4" :range="true" />
-        <a class="filter-btn" @click="closeFilter">Фильтровать</a>
+        <a class="filter-btn" @click="closeFilter">{{ $t("doFiltr") }}</a>
       </form>
     </div>
     <div class="">
@@ -83,11 +83,11 @@
             <span class="shop-btn-line"></span>
           </button>
 
-          <h3 class="shop-filter__title">Фильтр</h3>
+          <h3 class="shop-filter__title">{{ $t("filter") }}</h3>
         </div>
         <div class="shop-filter__right">
           <h3 class="shop-filter__clear" @click="clearFilter">
-            Сбросить Фильтр
+            {{ $t("clearFilter") }}
           </h3>
         </div>
       </div>
@@ -244,7 +244,7 @@ export default {
       }
     },
     clearFilter() {
-      this.getProducts()
+      this.getProducts();
     },
   },
   mounted() {
